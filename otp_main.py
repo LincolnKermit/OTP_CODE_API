@@ -1,14 +1,12 @@
 import requests, os, time
 from bs4 import BeautifulSoup
 os.system("clear")
-# @ de la page à scraper
 base_url = "https://receive-smss.com/"
 i = 1
 print("API For receive-smss.com in /bin/bash...")
 time.sleep(1)
 os.system("clear")
 print("Country Code...")
-# Dictionnaire des indicatifs de pays
 country_codes = {
     "+1": "United States",
     "+33": "France",
@@ -95,13 +93,9 @@ time.sleep(1)
 print("Available Number...")
 time.sleep(0.5)
 def number_view():
-    # Vérifier que la requête a réussi (code 200 signifie succès)
     response = requests.get(base_url, headers=headers)
     if response.status_code == 200:
-        # Analyser le contenu HTML de la page
         soup = BeautifulSoup(response.text, 'html.parser')
-        
-        # Sélectionner tous les éléments 'a' qui contiennent les numéros de téléphone
         phone_links = soup.find_all('div', {'class': 'number-boxes-itemm-number', 'style': 'color:black'})
         print(phone_links)
         n = 1
@@ -119,10 +113,7 @@ def number_view():
         return []
 
 def get_country_from_number(phone_number):
-    # Extraire le préfixe du numéro (les premiers caractères)
     prefix = phone_number[:3]
-    
-    # Rechercher le pays correspondant dans le dictionnaire des indicatifs de pays
     country = country_codes.get(prefix, "Pays inconnu")
     
     return country
@@ -145,21 +136,17 @@ if phone_numbers:
             if response.status_code == 200:
                 soup = BeautifulSoup(response.text, 'html.parser')
                 elements = soup.find_all(class_="col-md-6 msg")
-
-                # Inversez l'ordre de la liste elements
                 elements.reverse()
 
                 
                 for element in elements:
-                    text = element.get_text(strip=True)  # Obtenez le texte de l'élément en supprimant les espaces inutiles
+                    text = element.get_text(strip=True)
                     text = text.replace("Message", "")
                     print(text, "\n \n")
                     time.sleep(0.1)
             time.sleep(15)
 
 
-
-        # Après la boucle, last_three_sms contient les trois derniers SMS
         
 
             
