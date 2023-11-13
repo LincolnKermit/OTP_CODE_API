@@ -4,6 +4,12 @@
 made by LincolnKermit ( Credit me if you gonna use in your script. )
 
 
+EDIT 13/11/23 :
+SCRIPT HAS BEEN BROKEN BY RECEIVE-SMSS.
+PLEASE STAND-BY WHILE IM TRYNA FIX IT.
+MORE EDIT WILL COME SOON...
+
+
 
 
 ## Installation
