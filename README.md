@@ -28,7 +28,7 @@ Install my-project with pip3
 ```python
 python3 otp_main.py
 ```
-
+This script reload every messages of the selected number every 15 seconds.
 
 ## API Reference
 
