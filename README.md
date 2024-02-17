@@ -9,8 +9,8 @@ made by LincolnKermit ( Credit me if you gonna use in your script. )
 Install my-project with pip3
 
 ```bash
-  cd OTP_CODE_API-main
-  sudo pip3 install -r requirements.txt
+cd OTP_CODE_API-main
+sudo pip3 install -r requirements.txt
 ```
     
 ## Usage/Examples
