@@ -1,5 +1,9 @@
 
 # OTP CODE API
+## 19/02/24 EDIT :
+This script has been broken since the website has a modifications in their sctructure. Please allow me to fix that in the next days...
+
+
 
 made by LincolnKermit ( Credit me if you gonna use in your script. )
 
