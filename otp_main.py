@@ -1,5 +1,6 @@
 import requests, os, time
 from bs4 import BeautifulSoup
+# Made by Github.com/LincolnKermit
 os.system("clear")
 base_url = "https://receive-smss.com/"
 i = 1
@@ -89,9 +90,9 @@ time.sleep(0.5)
 os.system("clear")
 print("Country Code... OK")
 print("Header Check... OK")
-time.sleep(1)
+time.sleep(0)
 print("Available Number...")
-time.sleep(0.5)
+time.sleep(0)
 def number_view():
     response = requests.get(base_url, headers=headers)
     if response.status_code == 200:
@@ -131,12 +132,12 @@ if phone_numbers:
         selected_number = selected_number.replace("+", "")
         url = f"{base_url}sms/{selected_number}/"
         while i > 0:    
-            response = requests.get(url, headers=headers)
-            print(url)
-            if response.status_code == 200:
-                soup = BeautifulSoup(response.text, 'html.parser')
-                elements = soup.find_all(class_="col-md-6 msg")
-                elements.reverse()
+            response_msg = requests.get(url, headers=headers)
+            os.system("clear")
+            if response_msg.status_code == 200:
+                soup = BeautifulSoup(response_msg.text, 'html.parser')
+                elements = soup.find_all(class_="col-md-6 msgg")
+                print(elements.reverse())
 
                 
                 for element in elements:
@@ -145,11 +146,9 @@ if phone_numbers:
                     print(text, "\n \n")
                     time.sleep(0.1)
             time.sleep(15)
-
-
-        
-
-            
+        else:
+            print("Erreur : ", response_msg.status_code)
+   
     else:
         print("Choix invalide. Veuillez sélectionner un numéro valide.")
 else:
