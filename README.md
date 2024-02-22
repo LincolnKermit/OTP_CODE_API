@@ -1,7 +1,7 @@
 
 # OTP CODE API
-~~ ## 19/02/24 EDIT : ~~ 
-~~ This script has been broken since the website has a modifications in their sctructure. Please allow me to fix that in the next days... ~~
+ ## ~~19/02/24 EDIT :~~
+~~This script has been broken since the website has a modifications in their sctructure. Please allow me to fix that in the next days...~~
 ## 22/02/24 EDIT :
 FIXED!!
 
