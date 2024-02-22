@@ -1,11 +1,11 @@
 import requests, os, time
 from bs4 import BeautifulSoup
-# Made by Github.com/LincolnKermit
+# Made By Github.com/LincolnKermit
 os.system("clear")
 base_url = "https://receive-smss.com/"
 i = 1
 print("API For receive-smss.com in /bin/bash...")
-time.sleep(1)
+time.sleep(0.5)
 os.system("clear")
 print("Country Code...")
 country_codes = {
@@ -90,9 +90,9 @@ time.sleep(0.5)
 os.system("clear")
 print("Country Code... OK")
 print("Header Check... OK")
-time.sleep(0)
+time.sleep(0.1)
 print("Available Number...")
-time.sleep(0)
+time.sleep(0.1)
 def number_view():
     response = requests.get(base_url, headers=headers)
     if response.status_code == 200:
@@ -144,7 +144,7 @@ if phone_numbers:
                     text = element.get_text(strip=True)
                     text = text.replace("Message", "")
                     print(text, "\n \n")
-                    time.sleep(0.1)
+                    time.sleep(0.05)
             time.sleep(15)
         else:
             print("Erreur : ", response_msg.status_code)
