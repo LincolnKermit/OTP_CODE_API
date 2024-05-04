@@ -1,4 +1,4 @@
-import requests, os, time
+import requests, os, time, sys
 from bs4 import BeautifulSoup
 # Made By Github.com/LincolnKermit
 os.system("clear")
@@ -131,7 +131,8 @@ if phone_numbers:
         print("Pays :", country)
         selected_number = selected_number.replace("+", "")
         url = f"{base_url}sms/{selected_number}/"
-        while i > 0:    
+        while i > 0:
+            sys.stdout.write("\x1b]2;"+selected_number+"\x07")
             response_msg = requests.get(url, headers=headers)
             os.system("clear")
             if response_msg.status_code == 200:
