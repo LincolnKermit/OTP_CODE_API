@@ -3,8 +3,15 @@ from bs4 import BeautifulSoup
 # Made By Github.com/LincolnKermit
 os.system("clear")
 base_url = "https://receive-smss.com/"
+
+try:
+    if sys.argv[1] == "no-reload":
+        noreload = True
+except:
+    noreload = False
+
 i = 1
-print("API For receive-smss.com in /bin/bash...")
+print("API For receive-smss.com by @LincolnKermit")
 time.sleep(0.5)
 os.system("clear")
 print("Country Code...")
@@ -81,24 +88,27 @@ country_codes = {
 
 time.sleep(0.5)
 os.system("clear")
-print("Country Code... OK")
+if country_codes:
+    print("Country Code... OK")
+
 print("Header Check...")
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
 }
 time.sleep(0.5)
 os.system("clear")
-print("Country Code... OK")
-print("Header Check... OK")
+if country_codes:   
+    print("Country Code... OK")
+if headers:
+    print("Header Check... OK")
 time.sleep(0.1)
-print("Available Number...")
+print("Fetching available numbers...")
 time.sleep(0.1)
 def number_view():
     response = requests.get(base_url, headers=headers)
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
         phone_links = soup.find_all('div', {'class': 'number-boxes-itemm-number', 'style': 'color:black'})
-        print(phone_links)
         n = 1
         phone_numbers = []
         
@@ -125,11 +135,10 @@ if phone_numbers:
     nb_choice = int(input("Sélectionnez un numéro (entrez le numéro correspondant) : "))
     
     if nb_choice >= 1 and nb_choice <= len(phone_numbers):
-        selected_number = phone_numbers[nb_choice - 1]
-        country = get_country_from_number(selected_number)
-        print("Numéro sélectionné :", selected_number)
-        print("Pays :", country)
-        selected_number = selected_number.replace("+", "")
+        country = get_country_from_number(phone_numbers[nb_choice - 1])
+        print("Numéro sélectionné :", phone_numbers[nb_choice - 1])
+        print("Pays :", get_country_from_number(phone_numbers[nb_choice - 1]))
+        selected_number = phone_numbers[nb_choice - 1].replace("+", "")
         url = f"{base_url}sms/{selected_number}/"
         while i > 0:
             sys.stdout.write("\x1b]2;"+selected_number+"\x07")
@@ -138,15 +147,29 @@ if phone_numbers:
             if response_msg.status_code == 200:
                 soup = BeautifulSoup(response_msg.text, 'html.parser')
                 elements = soup.find_all(class_="col-md-6 msgg")
-                print(elements.reverse())
-
-                
+                print(elements.reverse())                
                 for element in elements:
                     text = element.get_text(strip=True)
                     text = text.replace("Message", "")
                     print(text, "\n \n")
                     time.sleep(0.05)
-            time.sleep(15)
+                if noreload:
+                    break
+                elif noreload == False:
+
+                    z = 1
+                    y = 15
+                    while y > 0:
+                        print(f"Rafraîchissement dans {y} secondes...")
+                        print("Numéro sélectionné :", phone_numbers[nb_choice - 1])
+                        time.sleep(z)
+                        y -= 1
+                        os.system("clear")
+                        for element in elements:
+                            text = element.get_text(strip=True)
+                            text = text.replace("Message", "")
+                            print(text, "\n \n")
+                time.sleep(y)
         else:
             print("Erreur : ", response_msg.status_code)
    
