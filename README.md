@@ -1,11 +1,3 @@
-
-# OTP CODE API
- ## ~~19/02/24 EDIT :~~
-~~This script has been broken since the website has a modifications in their sctructure. Please allow me to fix that in the next days...~~
-## 22/02/24 EDIT :
-FIXED!!
-
-
 made by LincolnKermit ( Credit me if you gonna use in your script. )
 
 
@@ -21,7 +13,9 @@ sudo pip3 install -r requirements.txt
 ## Usage/Examples
 
 ```python
-python3 otp_main.py
+python3 otp_main.py no-reload # if you doesn't want to refresh everytime and allow copy/paste more easily
+or
+python3 otp_main.py # if you want interactive CLI
 ```
 This script reload every messages of the selected number every 15 seconds.
 
