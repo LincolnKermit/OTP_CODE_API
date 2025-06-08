@@ -15,8 +15,8 @@ sudo pip3 install -r requirements.txt
 
 ```python
 python3 otp_main.py no-reload # if you doesn't want to refresh everytime and allow copy/paste more easily
-or
-python3 otp_main.py # if you want interactive CLI
+#or
+python3 otp_main.py # if you want interactive CLI ( enabled by default )
 ```
 This script reload every messages of the selected number every 15 seconds.
 
