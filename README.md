@@ -1,5 +1,6 @@
-made by LincolnKermit ( Credit me if you gonna use in your script. )
+# OTP CODE API
 
+A simple scrapper to fetch SMS from a online website and display it in a CLI.
 
 ## Installation
 
@@ -31,5 +32,5 @@ Just kidding we don't need API Key...
 
 ## Authors
 
-- [@LincolnKermit](https://www.github.com/LincolnKermit)
+- [@LincolnKermit](https://www.github.com/LincolnKermit) - Credit me if you gonna use in your script.
 
